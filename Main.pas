@@ -38,7 +38,7 @@ begin
 		else if (cmd = 'statistik') then
 			// statistik
 		else if (cmd = 'load') then
-			// load
+			load
 		else if (cmd = 'save') then
 			save
 		else if (cmd = 'cari_anggota') then
@@ -53,6 +53,8 @@ begin
 					save;
 				running := false;
 			end;
+		end else if (cmd = 'debug') then begin
+			writeln(length(userData), ', ', userData[0].username);
 		end;
 	end;
 end.
