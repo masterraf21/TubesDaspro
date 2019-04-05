@@ -53,8 +53,6 @@ begin
 					save;
 				running := false;
 			end;
-		end else if (cmd = 'debug') then begin
-			writeln(length(userData), ', ', userData[0].username);
 		end;
 	end;
 end.
