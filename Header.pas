@@ -32,29 +32,28 @@ interface
 			tanggal: Tanggal;
 		end;
 
+	const
+		br = {$IFDEF LINUX} AnsiChar(#10) {$ENDIF} 
+			 {$IFDEF MSWINDOWS} AnsiString(#13#10) {$ENDIF};
+
 	var
 		loggedUser: User;
 		loggedIn: boolean;
-		userData, pinjamHistoryData, kembaliHistoryData, laporanHilangData: TList;
+		userData: array of User;
+		pinjamHistoryData: array of PinjamHistory;
+		kembaliHistoryData: array of KembaliHistory;
+		laporanHilangData: array of LaporanHilang;
 
 	procedure init;
-	function getUser(i: integer): User;
 	procedure addUser(u: user);
 
 implementation
 	procedure init;
 		begin
-			userData := TList.create;
-			pinjamHistoryData := TList.create;
-			kembaliHistoryData := TList.create;
-			laporanHilangData := TList.create;
-		end;
-	function getUser(i: integer): User;
-		begin
-			getUser := User((userData[i])^);
 		end;
 	procedure addUser(u: user);
 		begin
-			userData.add(@u);
+			setLength(userData, length(userData)+1);
+			userData[length(userData)-1] := u;
 		end;
 end.

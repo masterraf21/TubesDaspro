@@ -14,13 +14,14 @@ implementation
 			valid: boolean;
 			u: User;
 		begin
+			valid := false;
 			write('Masukkan username: ');
 			readln(username);
 			write('Masukkan password: ');
 			readln(password);
 			valid := false;
-			for i := 0 to userData.count-1 do begin
-				u := getUser(i);
+			for i := 0 to length(userData)-1 do begin
+				u := userData[i];
 				if username = u.username then begin
 					writeln(u.username);
 					if password = u.password then
@@ -53,6 +54,7 @@ implementation
 			write('Masukkan password pengunjung: ');
 			readln(password);
 			res.password := password;
+			res.role := 'Pengunjung';
 			writeln;
 			addUser(res);
 			writeln('Pengunjung ', nama, ' berhasil terdaftar sebagai user.');

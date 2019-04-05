@@ -40,7 +40,7 @@ begin
 		else if (cmd = 'load') then
 			// load
 		else if (cmd = 'save') then
-			// save
+			save
 		else if (cmd = 'cari_anggota') then
 			// cari_anggota
 		else if (cmd = 'help') then
@@ -49,8 +49,8 @@ begin
 			write('Apakah anda mau melakukan penyimpanan file yang sudah dilakukan (Y/N) ? ');
 			readln(cmd);
 			if (cmd = 'Y') or (cmd = 'N') then begin
-				// if (cmd = 'Y') then
-				// 	save;
+				if (cmd = 'Y') then
+					save;
 				running := false;
 			end;
 		end;
