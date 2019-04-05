@@ -43,9 +43,9 @@ begin
 			// save
 		else if (cmd = 'cari_anggota') then
 			// cari_anggota
-		else if (cmd = 'help') then begin
-			
-		end else if (cmd = 'exit') then begin
+		else if (cmd = 'help') then
+			// help
+		else if (cmd = 'exit') then begin
 			write('Apakah anda mau melakukan penyimpanan file yang sudah dilakukan (Y/N) ? ');
 			readln(cmd);
 			if (cmd = 'Y') or (cmd = 'N') then begin

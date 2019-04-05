@@ -38,6 +38,8 @@ interface
 		userData, pinjamHistoryData, kembaliHistoryData, laporanHilangData: TList;
 
 	procedure init;
+	function getUser(i: integer): User;
+	procedure addUser(u: user);
 
 implementation
 	procedure init;
@@ -46,5 +48,13 @@ implementation
 			pinjamHistoryData := TList.create;
 			kembaliHistoryData := TList.create;
 			laporanHilangData := TList.create;
+		end;
+	function getUser(i: integer): User;
+		begin
+			getUser := User((userData[i])^);
+		end;
+	procedure addUser(u: user);
+		begin
+			userData.add(@u);
 		end;
 end.

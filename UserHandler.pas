@@ -12,6 +12,7 @@ implementation
 			username, password: string;
 			i: integer;
 			valid: boolean;
+			u: User;
 		begin
 			write('Masukkan username: ');
 			readln(username);
@@ -19,15 +20,17 @@ implementation
 			readln(password);
 			valid := false;
 			for i := 0 to userData.count-1 do begin
-				if username = User(userData[i]^).username then begin
-					if password = User(userData[i]^).password then
+				u := getUser(i);
+				if username = u.username then begin
+					writeln(u.username);
+					if password = u.password then
 						valid := true;
 					break;
 				end;
 			end;
 			if valid then begin
-				writeln('Selamat datang ', User(userData[i]^).username, '!');
-				loggedUser := User(userData[i]^);
+				writeln('Selamat datang ', u.username, '!');
+				loggedUser := u;
 				loggedIn := true;
 			end else
 				writeln('Username / password salah! Silakan coba lagi.');
@@ -51,7 +54,7 @@ implementation
 			readln(password);
 			res.password := password;
 			writeln;
-			userData.add(@res);
+			addUser(res);
 			writeln('Pengunjung ', nama, ' berhasil terdaftar sebagai user.');
 		end;
 end.
