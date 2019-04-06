@@ -23,7 +23,6 @@ implementation
 			for i := 0 to length(userData)-1 do begin
 				u := userData[i];
 				if username = u.username then begin
-					writeln(u.username);
 					if hashCode(password) = u.password then
 						valid := true;
 					break;
