@@ -181,7 +181,7 @@ implementation
 				addHilang(h);
 			end;
 
-			writeln('File perpustakaan berhasil dimuat!ss');
+			writeln('File perpustakaan berhasil dimuat!');
 		end;
 
 end.
