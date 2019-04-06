@@ -59,4 +59,15 @@ implementation
 			addUser(res);
 			writeln('Pengunjung ', nama, ' berhasil terdaftar sebagai user.');
 		end;
+
+	function hashCode(s: string): longint;
+		var
+			res: longint;
+		begin
+			res := 0;
+			for i := 1 to length(s) do begin
+				res := res*hashPrime + ord(s[i]);
+			end;
+			hashCode := res;
+		end;
 end.

@@ -35,6 +35,7 @@ interface
 	const
 		br = {$IFDEF LINUX} AnsiChar(#10) {$ENDIF} 
 			 {$IFDEF MSWINDOWS} AnsiString(#13#10) {$ENDIF};
+		hashPrime = 31;
 
 	var
 		loggedUser: User;
