@@ -150,7 +150,7 @@ implementation
 				u.nama := arr[i][0];
 				u.alamat := arr[i][1];
 				u.username := arr[i][2];
-				u.password := arr[i][3];
+				u.password := StrToInt64(arr[i][3]);
 				u.role := arr[i][4];
 				addUser(u);
 			end;

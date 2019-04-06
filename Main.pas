@@ -8,7 +8,6 @@ var
 	running: boolean;
 
 begin
-	init;
 	loggedIn := false;
 	running := true;
 	while running do begin

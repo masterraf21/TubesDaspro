@@ -24,7 +24,7 @@ implementation
 				u := userData[i];
 				if username = u.username then begin
 					writeln(u.username);
-					if password = u.password then
+					if hashCode(password) = u.password then
 						valid := true;
 					break;
 				end;
@@ -53,21 +53,10 @@ implementation
 			res.username := username;
 			write('Masukkan password pengunjung: ');
 			readln(password);
-			res.password := password;
+			res.password := hashCode(password);
 			res.role := 'Pengunjung';
 			writeln;
 			addUser(res);
 			writeln('Pengunjung ', nama, ' berhasil terdaftar sebagai user.');
-		end;
-
-	function hashCode(s: string): longint;
-		var
-			res: longint;
-		begin
-			res := 0;
-			for i := 1 to length(s) do begin
-				res := res*hashPrime + ord(s[i]);
-			end;
-			hashCode := res;
 		end;
 end.

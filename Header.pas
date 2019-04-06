@@ -9,7 +9,8 @@ interface
 			d, m, y: integer;
 		end;
 		User = record
-			nama, alamat, username, password, role: string;
+			nama, alamat, username, role: string;
+			password: int64;
 		end;
 		Buku = record
 			id, jumlah, tahun: integer;
@@ -46,7 +47,7 @@ interface
 		kembaliData: array of KembaliHistory;
 		laporanHilangData: array of LaporanHilang;
 
-	procedure init;
+	function hashCode(s: string): int64;
 	procedure addBuku(u: Buku);
 	procedure addUser(u: User);
 	procedure addPinjam(u: PinjamHistory);
@@ -56,8 +57,16 @@ interface
 	function tanggalToString(t: Tanggal): string;
 
 implementation
-	procedure init;
+	function hashCode(s: string): int64; // rolling hash
+		var
+			res: int64;
+			i: longint;
 		begin
+			res := 0;
+			for i := 1 to length(s) do begin
+				res := res*hashPrime + ord(s[i]);
+			end;
+			hashCode := res;
 		end;
 	procedure addBuku(u: Buku);
 		begin
