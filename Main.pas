@@ -42,6 +42,7 @@ begin
 			save
 		else if (cmd = 'cari_anggota') then
 			// cari_anggota
+			cari_anggota
 		else if (cmd = 'help') then
 			// help
 		else if (cmd = 'exit') then begin

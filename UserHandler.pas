@@ -5,6 +5,7 @@ interface
 		Header;
 	procedure login;
 	procedure register;
+	procedure cari_anggota;
 
 implementation
 	procedure login;
@@ -57,5 +58,35 @@ implementation
 			writeln;
 			addUser(res);
 			writeln('Pengunjung ', nama, ' berhasil terdaftar sebagai user.');
+		end;
+
+	procedure cari_anggota;
+		{
+			prosedur untuk mencari anggota dari database;
+		}
+		var
+			username : string; //username yang ingin dicari
+			i : integer;
+
+
+		begin
+			//read input
+			write('Masukkan username: ');
+			readln(username);
+
+			//search di array database userData
+			for i:=0 to length(userData)-1 do
+			begin
+			 	if(username = userData[i].username) then
+			 	begin
+			 		writeln('Nama Angota: ', userData[i].username);
+			 		writeln('Alamat Anggota: ', userData[i].alamat);
+			 		break;
+			 	end else if(i=length(userData)-1)and(username<>userData[i].username) then
+			 	begin
+			 		writeln('Pencarian anggota tidak ditemukan');
+			 	end;
+			end; 
+
 		end;
 end.
